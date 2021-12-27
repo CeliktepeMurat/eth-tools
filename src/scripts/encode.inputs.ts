@@ -62,7 +62,7 @@ export const encodeEventSigWithAbi = (input: AbiItem): string => {
 /*
 // encoding single parameter with given type
 // e.g input -> type: "uint256", param: "2345675643"
-// e.g output -> 0x000000000000000000000000000000000000000000000000000000008bd02b7b
+// e.g output -> "0x000000000000000000000000000000000000000000000000000000008bd02b7b"
 */
 export const encodeParameter = (type: string | object, param: any): string => {
   const encodedParamether = web3.eth.abi.encodeParameter(type, param);
@@ -72,9 +72,35 @@ export const encodeParameter = (type: string | object, param: any): string => {
 /*
 // encoding multiple parameters with given types
 // e.g input -> types: ['uint256', 'string'], params: ['2345675643', 'Hello']
-// e.g output -> 0x000000000000000000000000000000000000000000000000000000008bd02b7b0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000748656c6c6f212500000000000000000000000000000000000000000000000000
+// e.g output -> "0x000000000000000000000000000000000000000000000000000000008bd02b7b0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000748656c6c6f212500000000000000000000000000000000000000000000000000"
 */
 export const encodeParameters = (types: any[], params: any[]): string => {
   const encodedParamether = web3.eth.abi.encodeParameters(types, params);
+  return encodedParamether;
+};
+
+/**
+*  e.g inputs -> (
+    {
+        name: 'myMethod',
+        type: 'function',
+        inputs: [{
+            type: 'uint256',
+            name: 'myNumber'
+        },{
+            type: 'string',
+            name: 'myString'
+        }]
+    }, ['2345675643', 'Hello'])
+*  e.g output -> "0x24ee0097000000000000000000000000000000000000000000000000000000008bd02b7b0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000748656c6c6f212500000000000000000000000000000000000000000000000000"
+*/
+export const encodeFunctionCall = (
+  jsonInterface: AbiItem,
+  params: any[]
+): string => {
+  const encodedParamether = web3.eth.abi.encodeFunctionCall(
+    jsonInterface,
+    params
+  );
   return encodedParamether;
 };
