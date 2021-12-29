@@ -4,12 +4,8 @@ import './index.css';
 import App from './App';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NotFound from './components/NotFound';
+import EncodePage from './app/encode/EncodePage';
 
-const Test1 = () => (
-  <div>
-    <h1>Test1</h1>
-  </div>
-);
 const Test2 = () => (
   <div>
     <h1>Test2</h1>
@@ -20,7 +16,7 @@ const Root = () => {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<App />} />
-        <Route path='/test1' element={<Test1 />} />
+        <Route path='/encode' element={<EncodePage />} />
         <Route path='/test2' element={<Test2 />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
