@@ -1,11 +1,14 @@
 import React from 'react';
+import Decode from './app/decode/Decode';
+import Encode from './app/encode/Encode';
 
 interface Props {}
 
 const App = (props: Props) => {
   return (
     <div>
-      <h1>App</h1>
+      <Encode />
+      <Decode />
     </div>
   );
 };
