@@ -1,11 +1,11 @@
 import React from 'react';
-
+import Encode from './app/encode/Encode';
 interface Props {}
 
 const App = (props: Props) => {
   return (
     <div>
-      <h1>App</h1>
+      <Encode />
     </div>
   );
 };
