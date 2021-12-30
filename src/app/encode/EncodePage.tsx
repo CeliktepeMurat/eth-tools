@@ -7,8 +7,28 @@ interface Props {}
 const Encode = (props: Props) => {
   return (
     <div>
-      <h1>Encode Page</h1>
-      <EncodeCard />
+      <div style={{ margin: '20px 0' }}>
+        <EncodeCard
+          title='Encode Function Signature'
+          buttonText='Encode'
+          func={encodeFunctionSigWithString}
+        />
+        <EncodeCard
+          title='Encode Function Signature'
+          buttonText='Encode'
+          func={encodeFunctionSigWithString}
+        />
+        <EncodeCard
+          title='Encode Function Signature'
+          buttonText='Encode'
+          func={encodeFunctionSigWithString}
+        />
+        <EncodeCard
+          title='Encode Function Signature'
+          buttonText='Encode'
+          func={encodeFunctionSigWithString}
+        />
+      </div>
     </div>
   );
 };
