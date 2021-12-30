@@ -1,5 +1,5 @@
 import Web3 from 'web3';
-import { AbiInput, AbiItem } from 'web3-utils';
+import { AbiInput } from 'web3-utils';
 
 const web3: Web3 = new Web3();
 
