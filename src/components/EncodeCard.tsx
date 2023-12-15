@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 
-interface Props {}
+interface Props {
+  title: string;
+  buttonText: string;
+  func: any;
+}
 
-const EncodeCard = (props: Props) => {
+const EncodeCard = ({ title, buttonText, func }: Props) => {
   const [encodeInput, setEncodeInput] = useState(' ');
   const [encodedInput, setEncodedInput] = useState(' ');
 
   return (
     <div
       style={{
-        width: '40%',
-        height: '240px',
+        width: '80%',
+        height: '260px',
         minWidth: '400px',
         maxWidth: '600px',
         margin: 'auto',
@@ -18,7 +22,8 @@ const EncodeCard = (props: Props) => {
         backgroundImage: `linear-gradient(to right, #e66465, #9198e5)`,
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
+        marginBottom: '30px',
+        marginTop: '20px',
       }}
     >
       <h1
@@ -31,50 +36,49 @@ const EncodeCard = (props: Props) => {
           marginTop: '10px',
         }}
       >
-        Encode string
+        {title}
       </h1>
       <div
         style={{
           display: 'flex',
-          flexDirection: 'row',
+          flexDirection: 'column',
           margin: '30px auto',
-
           width: '100%',
-          justifyContent: 'space-evenly',
+          justifyContent: 'space-between',
           alignItems: 'center',
         }}
       >
         <input
           className=''
-          placeholder='Encode string...'
+          placeholder='Enter to encode...'
           type='text'
-          onChange={(e) => setEncodedInput(e.target.value.toString())}
+          onChange={(e) => setEncodeInput(e.target.value.toString())}
           style={{
-            width: '60%',
-            height: '40px',
+            width: '80%',
+            height: '100px',
             textAlign: 'center',
-            borderRadius: '20px',
+            borderRadius: '5px',
           }}
         />
 
         <button
           style={{
             color: 'white',
-
-            borderRadius: '20px',
-            padding: '15px',
+            marginTop: '20px',
+            borderRadius: '10px',
+            padding: '10px',
             backgroundColor: '#e66465',
+            alignSelf: 'center',
           }}
-          onClick={() => console.log('function')}
+          onClick={() => setEncodedInput(func(encodeInput))}
         >
-          Encode
+          {buttonText}
         </button>
       </div>
       <div
         style={{
           display: 'flex',
           justifyContent: 'center',
-
           padding: '20px',
         }}
       >
